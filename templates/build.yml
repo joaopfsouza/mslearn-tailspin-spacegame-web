@@ -4,6 +4,10 @@ parameters:
     SonarProjectKey: '$(SonarProjectKey)'
     SonarProjectName: '$(SonarProjectName)'
 
+
+
+steps:
+
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud analysis'
   inputs:
@@ -16,7 +20,7 @@ parameters:
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
 
-steps:
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - ${{ parameters.buildConfiguration }}'
   inputs:
