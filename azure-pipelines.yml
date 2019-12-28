@@ -53,6 +53,9 @@ steps:
     SonarProjectKey: '$(SonarProjectKey)'
     SonarProjectName: '$(SonarProjectName)'
 
+- task: WhiteSource Bolt@19
+  displayName: 'Run WhiteSource Bolt'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
